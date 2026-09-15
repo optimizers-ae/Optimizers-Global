@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import logoSvg from '../assets/logo.svg';
 import {
-  Menu,
   X,
   ArrowRight,
-  Sparkles,
-  Calendar,
   Mail,
   Check,
-  Globe2,
-  ExternalLink,
   Send,
-  MessageSquare,
   Share2,
 } from 'lucide-react';
 
@@ -63,7 +57,7 @@ const Navbar = () => {
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#0f131a]/85 backdrop-blur-xl border-b border-slate-800/80 py-3.5 shadow-2xl shadow-black/50'
+            ? 'bg-[#0f131a]/85 backdrop-blur-xl border-slate-800/80 py-3.5 shadow-2xl shadow-black/50'
             : 'bg-transparent py-5 sm:py-6'
         }`}
       >
@@ -105,7 +99,7 @@ const Navbar = () => {
               </div>
 
               {/* Typography */}
-              <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-slate-200 group-hover:text-white transition-colors font-sans">
+              <span className="text-xs sm:text-sm font-bold tracking-wider uppercase text-slate-200 group-hover:text-white transition-colors font-mont">
                 Menu
               </span>
             </button>
