@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Globe from '../components/Globe';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import heroImg from '../assets/hero.png';
 
 const Home = () => {
 
@@ -55,6 +56,7 @@ const Home = () => {
       offset: 'top-36',
       borderGlow: 'hover:border-[#e26d22]',
       accentColor: '#e26d22',
+      image: heroImg,
     },
   ];
 
@@ -64,13 +66,13 @@ const Home = () => {
       {/* 1. Rocket Preloader */}
       <Loader />
 
-      {/* 2. Top Navigation Bar*/}
+      {/* 2. Top Navigation Bar (z-50) */}
       <Navbar />
 
-      {/* 3. Globe */}
+      {/* 3. 3D Stylized Globe Layer (z-10) */}
       <Globe />
 
-      {/* 3D Embossed Hexagonal Backdrop Texture Overlay */}
+      {/* 4. Global 3D Embossed Hexagonal Backdrop Texture (z-0) */}
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.035]"
         style={{
@@ -80,19 +82,19 @@ const Home = () => {
         }}
       />
 
-      {/* Atmospheric Ambient Theme Glows */}
+      {/* Global Atmospheric Glows (z-0) */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(61,173,236,0.12),transparent_70%)] pointer-events-none z-0" />
       <div className="fixed bottom-0 right-10 w-[600px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(226,109,34,0.08),transparent_70%)] pointer-events-none z-0" />
 
       {/* ========================================================================= */}
-      {/* HERO SECTION (Center-Aligned)                                             */}
+      {/* HERO SECTION (Includes contained video banner bg z-0, text z-20)          */}
       {/* ========================================================================= */}
       <Hero />
 
       {/* ========================================================================= */}
       {/* INFINITE MARQUEE BANNER                                                   */}
       {/* ========================================================================= */}
-      <div className="relative z-10 w-full bg-[#181818]/90 border-y border-[#262626] py-3.5 overflow-hidden select-none backdrop-blur-md">
+      <div className="relative z-20 w-full bg-[#181818]/95 border-y border-[#262626] py-3.5 overflow-hidden select-none backdrop-blur-md">
         <div className="flex w-max animate-marquee space-x-8 text-xs sm:text-sm font-semibold tracking-wider uppercase text-slate-400">
           <span>13+ Years of Experience</span>
           <span className="text-[#3DADEC]">/</span>

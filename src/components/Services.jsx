@@ -14,7 +14,7 @@ const Services = ({services}) => {
     };
 
     return (
-        <section id="services" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+        <section id="services" className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
                 {/* Left Column: Sticky Information Panel */}
@@ -109,6 +109,28 @@ const Services = ({services}) => {
                                     </span>
                                 ))}
                             </div>
+
+                            {/* Complete Last Layer Visual Graphic */}
+                            {service.image && (
+                                <div className="mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-5 bg-[#0e1017]/80 rounded-2xl p-4 sm:p-5 border border-slate-800/60 group hover:border-[#3DADEC]/40 transition-all">
+                                    <div className="flex-1 text-left">
+                                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-[#3DADEC]/10 text-[#3DADEC] text-[11px] font-semibold tracking-wider uppercase mb-1">
+                                            <span>Multi-Tier Architecture</span>
+                                        </div>
+                                        <h4 className="text-sm sm:text-base font-bold text-white">Full-Stack Enterprise Stack</h4>
+                                        <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                                            Engineered with decoupled presentation and edge compute layers for lightning-fast global delivery.
+                                        </p>
+                                    </div>
+                                    <div className="relative flex-shrink-0 flex items-center justify-center w-28 h-28 sm:w-32 sm:h-32 bg-gradient-to-b from-[#3DADEC]/10 via-[#1e2230]/40 to-transparent rounded-xl border border-slate-700/50 p-2 shadow-inner">
+                                        <img
+                                            src={service.image}
+                                            alt="Complete Architecture Layer"
+                                            className="max-h-full max-w-full object-contain filter drop-shadow-[0_8px_16px_rgba(61,173,236,0.35)] animate-float-1 group-hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
+                                </div>
+                            )}
                         </article>
                     ))}
                 </div>
