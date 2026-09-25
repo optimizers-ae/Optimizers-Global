@@ -1,1 +1,69 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Bodoni Moda', 'Playfair Display', Didot, Georgia, serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0d0101;
+    color: #ffffff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+  font-style: normal;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+/* Custom Text Stroke for Giant Typography Overlays */
+.text-stroke-white {
+  -webkit-text-stroke: 1.5px #ffffff;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+}
+
+.text-stroke-white-thin {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.85);
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+}
+
+/* Cinematic Background Gradient matching exact reference image */
+.hero-gradient-bg {
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(255, 110, 0, 0.95) 0%, rgba(230, 45, 0, 0.9) 35%, rgba(150, 10, 0, 0.88) 65%, rgba(35, 0, 4, 0.98) 95%),
+    linear-gradient(100deg, #e62b00 0%, #ff5200 32%, #cf1b00 62%, #420006 88%, #1c0003 100%);
+  background-blend-mode: screen, normal;
+}
+
+/* Orange Glow Spotlight behind Portrait */
+.hero-glow-orange {
+  background: radial-gradient(ellipse at 49% 32%, rgba(255, 140, 10, 0.85) 0%, rgba(245, 50, 0, 0.45) 45%, transparent 75%);
+}
+
+.hero-glow-crimson {
+  background: linear-gradient(to right, transparent 40%, rgba(45, 0, 5, 0.65) 75%, rgba(20, 0, 3, 0.98) 100%);
+}
+
+/* CTA Button Hover */
+.cta-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(4px);
+}

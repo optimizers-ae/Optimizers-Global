@@ -1,14 +1,11 @@
-import Navbar from "./components/Navbar";
+import React from "react";
 import Router from "./Router";
-import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <>
-      <Navbar />
+    <div className="min-h-screen bg-[#0d0101] text-white">
       <Router />
-      <Footer />
-    </>
+    </div>
   );
 };
 
