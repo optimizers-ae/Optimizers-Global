@@ -1,9 +1,8 @@
-import React from "react";
 import heroImage from "../../assets/hero.png";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen w-full items-end overflow-hidden bg-[#1a0500]">
+    <section className="relative min-h-screen w-full overflow-hidden bg-[#1a0500]">
       {/* Banner image */}
       <img
         src={heroImage}
@@ -13,23 +12,21 @@ export default function Hero() {
       {/* Subtle overlay so overlaid text stays legible on lighter crops */}
       <div className="absolute inset-0 bg-linear-to-r from-black/15 via-transparent to-black/35" />
 
-
-      
-      <div className="relative z-10 mx-auto flex w-full max-w-[1680px] flex-col gap-12 px-6 pb-16 pt-36 sm:px-10 lg:flex-row lg:items-end lg:justify-between lg:px-16 lg:pb-24">
-        {/* Left: headline */}
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1680px] flex-col justify-between px-6 pb-14 pt-32 sm:px-10 lg:px-16 lg:pt-40">
+        {/* Top-left: headline */}
         <div>
-          <h1 className="font-anton leading-[0.82] text-white">
-            <span className="block text-[17vw] sm:text-[11vw] lg:text-[6.4vw]">
+          <h1 className="leading-[0.82] text-white">
+            <span className="font-neue block text-[15vw] sm:text-[9vw] lg:text-[5.2vw]">
               WELCOME TO
             </span>
           </h1>
-          <p className="mt-2 font-poppins text-2xl text-white/90 sm:text-3xl lg:text-[2.4vw]">
+          <p className="mt-2 font-poppins text-xl text-white/90 sm:text-2xl lg:text-3xl">
             OPTIMIZERS <span className="font-bold text-white">GLOBAL LLC</span>
           </p>
         </div>
 
-        {/* Right: supporting copy */}
-        <div className="max-w-sm lg:pb-3">
+        {/* Bottom-right: supporting copy */}
+        <div className="max-w-sm self-end text-left sm:text-right">
           <h2 className="font-poppins text-2xl font-bold leading-snug text-white sm:text-3xl">
             Your Dedicated
             <br />
