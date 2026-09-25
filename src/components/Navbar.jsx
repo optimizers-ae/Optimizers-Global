@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.svg"
 
 const navLinks = [
   { label: "Home", accent: "", href: "/" },
@@ -25,11 +26,10 @@ export default function Navbar() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-30">
-      <nav className="mx-auto flex w-full max-w-[1680px] items-center justify-between px-6 py-7 sm:px-10 lg:px-16">
+      <nav className="mx-auto flex w-full max-w-[1680px] z-10 items-center justify-between px-6 py-7 sm:px-10 lg:px-16">
         {/* Logo */}
-        <a href="/" className="font-poppins text-xl tracking-tight text-white relative z-50">
-          <span className="font-semibold">Optimizers</span>{" "}
-          <span className="font-light text-white/70">Global</span>
+        <a href={logo} className="relative z-50">
+          <img src={logo} alt="Logo" width={200} height={100}  />
         </a>
 
         {/* Desktop Nav links */}

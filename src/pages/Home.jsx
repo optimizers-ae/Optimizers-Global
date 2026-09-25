@@ -1,12 +1,16 @@
-import Hero from "../components/home/Hero";
-import Navbar from "../components/Navbar";
 
+import ConsultationSection from '../components/ConsultationSection';
+import ServicesSection from '../components/ServicesSection';
+import Hero from '../components/home/Hero';
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="relative min-h-screen bg-[#0a0202]">
-      <Navbar />
+    <main className="w-full min-h-screen overflow-x-hidden" style={{ background: '#030D12' }}>
       <Hero />
+      <ConsultationSection />
+      <ServicesSection />
     </main>
   );
-}
+};
+
+export default Home;

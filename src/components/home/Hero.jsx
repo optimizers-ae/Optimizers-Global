@@ -9,8 +9,15 @@ export default function Hero() {
         alt="Optimizers Global LLC — your dedicated growth and marketing team"
         className="absolute inset-0 h-full w-full object-cover object-[68%_center]"
       />
-      {/* Subtle overlay so overlaid text stays legible on lighter crops */}
-      <div className="absolute inset-0 bg-linear-to-r from-black/15 via-transparent to-black/35" />
+
+      {/* Bottom feather — softly dissolves the hero edge into the dark section below */}
+      <div
+        className="absolute bottom-0 left-0 right-0 pointer-events-none z-20"
+        style={{
+          height: '22%',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(3,13,18,0.30) 55%, rgba(3,13,18,0.72) 82%, rgba(3,13,18,0.96) 100%)',
+        }}
+      />
 
       <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-[1680px] flex-col justify-between px-6 pb-14 pt-32 sm:px-10 lg:px-16 lg:pt-40">
         {/* Top-left: headline */}

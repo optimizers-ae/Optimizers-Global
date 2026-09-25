@@ -1,14 +1,12 @@
-import Navbar from "./components/Navbar";
 import Router from "./Router";
-import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <>
+    <div className="min-h-screen bg-[#0d0101] text-white">
       <Navbar />
       <Router />
-      <Footer />
-    </>
+    </div>
   );
 };
 
