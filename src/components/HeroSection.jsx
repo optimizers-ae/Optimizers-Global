@@ -1,102 +1,141 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import Navbar from './Navbar';
-import portraitImg from '../assets/portrait.png';
+import React, { useEffect, useState } from 'react';
+import { ArrowUpRight, Play } from 'lucide-react';
+import heroImage from '../../assets/hero.png';
 
-const HeroSection = () => {
+export default function Hero() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 60);
+    return () => clearTimeout(t);
+  }, []);
+
+  const rise = (delay = 0) => ({
+    opacity: mounted ? 1 : 0,
+    transform: mounted ? 'translateY(0)' : 'translateY(24px)',
+    transition: `opacity 1000ms cubic-bezier(0.22,1,0.36,1) ${delay}ms, transform 1000ms cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+  });
+
   return (
-    <section className="relative w-full min-h-screen hero-gradient-bg overflow-hidden flex flex-col justify-between select-none">
-      {/* Background Radial & Linear Lighting Overlays (Layer 1 - z-0) */}
-      <div className="absolute inset-0 hero-glow-orange pointer-events-none z-0" />
-      <div className="absolute inset-0 hero-glow-crimson pointer-events-none z-0" />
+    <section className="relative min-h-screen w-full overflow-hidden bg-black select-none">
+      {/* Letterbox top */}
+      <div className="absolute top-0 left-0 right-0 h-[6vh] bg-black z-40" />
+      {/* Letterbox bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-[6vh] bg-black z-40" />
 
-      {/* Header / Navigation Bar (z-50) */}
-      <Navbar />
+      {/* Image */}
+      <img
+        src={heroImage}
+        alt="Optimizers Global LLC"
+        className="absolute inset-0 h-full w-full object-cover object-[70%_center] transition-transform duration-[3000ms] ease-out"
+        style={{ transform: mounted ? 'scale(1)' : 'scale(1.1)' }}
+      />
 
-      {/* Main Hero Content Area */}
-      <div className="relative w-full flex-1 px-6 md:px-12 lg:px-16 pt-2 pb-6 flex flex-col justify-between z-10">
-        
-        {/* Top Grid: Left Headline & Right Growth Team Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative z-10">
-          
-          {/* ================= LEFT SIDE ALIGNMENT FIX ================= */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-            className="lg:col-span-7 xl:col-span-7 flex flex-col items-start pt-2 z-20"
-          >
-            {/* Main Editorial Headline */}
-            <h1 className="font-editorial text-[55px] sm:text-[80px] md:text-[100px] lg:text-[118px] xl:text-[90px] text-white font-extrabold leading-none tracking-tight uppercase whitespace-nowrap my-1">
-              WELCOME TO
-            </h1>
+      {/* Deep vignette */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background:
+            'radial-gradient(ellipse at 65% 45%, transparent 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.98) 100%)',
+        }}
+      />
+      {/* Warm side glow */}
+      <div
+        className="absolute inset-0 pointer-events-none z-10 mix-blend-screen"
+        style={{
+          background:
+            'radial-gradient(circle at 25% 60%, rgba(255,90,20,0.35) 0%, transparent 55%)',
+        }}
+      />
 
-            {/* Sub-brand Typography - Yahan spacing aur alignment fix ki gayi hai */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-2 ml-1">
-              <span className="font-sans-clean text-white font-extralight text-base sm:text-lg md:text-xl tracking-[0.22em] uppercase">
-                OPTIMIZERS
-              </span>
-              <span className="font-sans-clean text-white font-extrabold text-base sm:text-lg md:text-xl tracking-[0.12em] uppercase">
-                GLOBAL LLC
-              </span>
-            </div>
-          </motion.div>
-
-          {/* ================= RIGHT SIDE ALIGNMENT FIX ================= */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-            className="lg:col-span-5 xl:col-span-5 flex flex-col items-start lg:pl-10 pt-4 lg:pt-14 z-50 relative"
-          >
-            {/* Right Title Block - ml-15 (invalid) ko hata kar proper margin diya */}
-            <div className="ml-0 lg:ml-20">
-              {/* Heading */}
-              <h2 className="font-sans-clean font-bold text-white text-xl sm:text-2xl md:text-[28px] lg:text-[32px] leading-[1.18] mb-3 drop-shadow-md">
-                Your Dedicated<br />Growth & Marketing Team
-              </h2>
-
-              {/* Subtext */}
-              <p className="font-sans-clean text-white/90 text-xs sm:text-sm font-light leading-relaxed max-w-xs mb-6 drop-shadow-md">
-                While you focus on <strong className="font-bold text-white">leading</strong> your business, we focus on <strong className="font-bold text-white">growing it.</strong>
-              </p>
-            </div>
-
-            {/* CTA Button - Iski alignment perfect ki gayi hai (Icon aur Text ka gap) */}
-            <motion.a
-              href="#services"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group cta-button flex items-center bg-black hover:bg-neutral-950 text-white rounded-full pl-2 pr-5 py-2 transition-all duration-300 shadow-xl cursor-pointer ml-0 lg:ml-20 "
-            >
-              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-3 text-black">
-                <ArrowRight size={16} className="cta-arrow transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-              <span className="font-sans-clean text-xs md:text-sm font-medium tracking-wide">
-                See our services
-              </span>
-            </motion.a>
-          </motion.div>
+      {/* Content */}
+      <div className="relative z-30 mx-auto flex min-h-screen w-full max-w-[1500px] flex-col justify-between px-6 pb-20 pt-24 sm:px-10 lg:px-16 lg:pb-24 lg:pt-32">
+        {/* Top small credit */}
+        <div
+          className="flex items-center gap-4 font-poppins text-white/50 text-[10px] tracking-[0.4em] uppercase"
+          style={rise(100)}
+        >
+          <span>A Film By</span>
+          <span className="w-8 h-[1px] bg-white/30" />
+          <span className="text-white/80">Optimizers Global LLC</span>
         </div>
 
-        {/* ================= PORTRAIT IMAGE (BILKUL WAISA HI HAI) ================= */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-          className="absolute top-[12vh] sm:top-[10vh] md:top-[8vh] bottom-0 left-[50%] md:left-[49%] -translate-x-[50%] w-[100%] sm:w-[90%] md:w-[80%] lg:w-[75%] h-[68vh] sm:h-[78vh] md:h-[86vh] lg:h-[92vh] pointer-events-none z-30 flex items-end justify-center"
-        >
-          <img
-            src={portraitImg}
-            alt="Optimizers Leader"
-            className="h-full w-full object-contain object-bottom drop-shadow-2xl relative z-30"
-          />
-        </motion.div>
+        {/* Center title */}
+        <div className="flex-1 flex flex-col justify-center py-16 lg:py-0">
+          <h1
+            className="font-editorial text-white text-center leading-[0.95] tracking-[-0.02em]"
+            style={rise(300)}
+          >
+            <span className="block text-[40px] sm:text-[64px] md:text-[84px] lg:text-[96px] italic font-light text-white/70">
+              a story of
+            </span>
+            <span className="block text-[64px] sm:text-[104px] md:text-[140px] lg:text-[168px] font-extrabold uppercase">
+              GROWTH
+            </span>
+            <span className="block text-[40px] sm:text-[64px] md:text-[84px] lg:text-[96px] italic font-light text-white/70">
+              in every market
+            </span>
+          </h1>
 
+          {/* Divider */}
+          <div
+            className="mx-auto mt-10 flex items-center gap-4"
+            style={rise(500)}
+          >
+            <span className="w-16 h-[1px] bg-white/30" />
+            <span className="font-poppins text-orange-400 text-[11px] tracking-[0.4em] uppercase">
+              Est. Dubai · Worldwide
+            </span>
+            <span className="w-16 h-[1px] bg-white/30" />
+          </div>
+        </div>
+
+        {/* Bottom row */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-end">
+          {/* Left — tagline */}
+          <div style={rise(700)}>
+            <p className="font-poppins text-white/75 text-sm leading-relaxed max-w-xs">
+              Your dedicated growth & marketing team. While you focus on leading, we focus on
+              growing it.
+            </p>
+          </div>
+
+          {/* Center — CTA stack */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:justify-center" style={rise(800)}>
+            <a
+              href="#services"
+              className="group inline-flex items-center gap-3 bg-white hover:bg-orange-100 text-black font-poppins font-semibold text-sm rounded-full pl-6 pr-3 py-3 transition-all duration-300"
+            >
+              See our services
+              <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center transition-transform duration-300 group-hover:rotate-45">
+                <ArrowUpRight size={16} />
+              </span>
+            </a>
+            <button className="group inline-flex items-center gap-3 text-white/80 hover:text-white transition-colors">
+              <span className="w-10 h-10 rounded-full border border-white/40 group-hover:border-white flex items-center justify-center transition-colors">
+                <Play size={12} className="ml-0.5" fill="currentColor" />
+              </span>
+              <span className="font-poppins text-xs tracking-[0.2em] uppercase">Watch reel</span>
+            </button>
+          </div>
+
+          {/* Right — credits */}
+          <div className="flex gap-8 lg:justify-end" style={rise(900)}>
+            {[
+              { n: '180+', l: 'Brands' },
+              { n: '12', l: 'Markets' },
+            ].map((s) => (
+              <div key={s.l} className="text-left lg:text-right">
+                <div className="font-editorial text-white text-2xl font-extrabold leading-none">
+                  {s.n}
+                </div>
+                <div className="font-poppins text-white/50 text-[10px] tracking-[0.24em] uppercase mt-1">
+                  {s.l}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
-};
-
-export default HeroSection;
+}

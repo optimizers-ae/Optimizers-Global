@@ -1,0 +1,95 @@
+/* Curtain Transition Styles — Optimizers Global */
+
+.curtain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 99999;
+  pointer-events: auto;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #06151D 0%, #020C10 80%);
+  will-change: transform;
+  overflow: hidden;
+}
+
+.curtain-panel-left {
+  left: 0;
+  width: calc(50% + 1px);
+  border-right: 1px solid rgba(0, 200, 232, 0.5);
+  box-shadow: 4px 0 24px rgba(0, 200, 232, 0.25);
+}
+
+.curtain-panel-right {
+  right: 0;
+  width: calc(50% + 1px);
+  border-left: 1px solid rgba(0, 200, 232, 0.5);
+  box-shadow: -4px 0 24px rgba(0, 200, 232, 0.25);
+}
+
+/* Central glowing cyan seam */
+.curtain-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 200, 232, 0.3) 10%,
+    #00C8E8 25%,
+    #00C8E8 75%,
+    rgba(0, 200, 232, 0.3) 90%,
+    transparent 100%
+  );
+  box-shadow: 0 0 16px rgba(0, 200, 232, 0.9), 0 0 36px rgba(0, 200, 232, 0.5);
+  z-index: 15;
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+/* Subtle pixel dissolve tiles along seam */
+.pixel-dissolve-col {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  pointer-events: none;
+  z-index: 8;
+  padding: 10px 0;
+}
+
+.pixel-tile {
+  background-color: #020C10;
+  border: 1px solid rgba(0, 200, 232, 0.4);
+  box-shadow: 0 0 8px rgba(0, 200, 232, 0.3);
+  box-sizing: border-box;
+  will-change: transform, opacity;
+  border-radius: 1px;
+}
+
+/* High-tech subtle grid pattern on curtains */
+.curtain-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, #00C8E8 1px, transparent 1px),
+    linear-gradient(to bottom, #00C8E8 1px, transparent 1px);
+  background-size: 44px 44px;
+}

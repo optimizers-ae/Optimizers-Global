@@ -1,5 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
 
 /* Neue Haas Display — Regular */
 @font-face {
@@ -10,8 +10,27 @@
   font-display: swap;
 }
 
+/* Neue Haas Display — Bold */
+@font-face {
+  font-family: "NeueHaas";
+  src: url("./assets/fonts/neue/NeueHaasDisplayBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Neue Haas Display — Black / ExtraBold */
+@font-face {
+  font-family: "NeueHaas";
+  src: url("./assets/fonts/neue/NeueHaasDisplayBlack.ttf") format("truetype");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-anton: "Anton", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
   --font-poppins: "Poppins", sans-serif;
   --font-flourish: "Playfair Display", serif;
   --font-playfair: "Playfair Display", serif;
